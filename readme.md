@@ -2,7 +2,7 @@
 
 Provides conversion from athena outputs to strongly defined data models.
 
-[![Build and test](https://github.com/kent-id/athenaconv/actions/workflows/athenaconv.yaml/badge.svg)](https://github.com/kent-id/athenaconv/actions/workflows/athenaconv.yaml) [![Coverage Status](https://coveralls.io/repos/github/kent-id/athenaconv/badge.svg)](https://coveralls.io/github/kent-id/athenaconv)
+[![Build and test](https://github.com/LumenResearch/athenaconv/actions/workflows/athenaconv.yaml/badge.svg)](https://github.com/LumenResearch/athenaconv/actions/workflows/athenaconv.yaml) [![Coverage Status](https://coveralls.io/repos/github/kent-id/athenaconv/badge.svg)](https://coveralls.io/github/kent-id/athenaconv)
 
 ## Getting started
 Given the following data struct you define:
@@ -55,7 +55,7 @@ for _, mappedItem := range mapped {
 ```
 
 ## Supported data types
-See [conversion.go](https://github.com/kent-id/athenaconv/blob/main/conversion.go) in this repo and [supported data types in athena](https://docs.aws.amazon.com/athena/latest/ug/data-types.html) for more details.
+See [conversion.go](https://github.com/LumenResearch/athenaconv/blob/main/conversion.go) in this repo and [supported data types in athena](https://docs.aws.amazon.com/athena/latest/ug/data-types.html) for more details.
 
 | Athena data type                         | Go data type                         | Comments                                                                  |
 | :--------------------------------------- | :----------------------------------- | :------------------------------------------------------------------------ |

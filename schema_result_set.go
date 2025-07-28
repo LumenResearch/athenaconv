@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/LumenResearch/athenaconv/util"
 	"github.com/aws/aws-sdk-go-v2/service/athena/types"
-	"github.com/kent-id/athenaconv/util"
 )
 
 // resultSetDefinitionMap is a map of athenaColName to each column returned by atena queries

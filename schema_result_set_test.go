@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"strings"
 
+	"github.com/LumenResearch/athenaconv/util"
 	"github.com/aws/aws-sdk-go-v2/service/athena/types"
-	"github.com/kent-id/athenaconv/util"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

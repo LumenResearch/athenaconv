@@ -7,11 +7,11 @@ import (
 	"reflect"
 	"time"
 
+	"github.com/LumenResearch/athenaconv"
+	"github.com/LumenResearch/athenaconv/util"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/athena"
 	"github.com/aws/aws-sdk-go-v2/service/athena/types"
-	"github.com/kent-id/athenaconv"
-	"github.com/kent-id/athenaconv/util"
 )
 
 const (
