@@ -41,9 +41,11 @@ func NewMapperFor(modelType reflect.Type) (DataMapper, error) {
 // Returns error if the athena ResultSetMetadata does not match the mapper definition.
 //
 // Example:
-// if page == 1 && len(queryResultOutput.ResultSet.Rows) > 0 {
-// 		queryResultOutput.ResultSet.Rows = queryResultOutput.ResultSet.Rows[1:]		// skip header row
-// }
+//
+//	if page == 1 && len(queryResultOutput.ResultSet.Rows) > 0 {
+//			queryResultOutput.ResultSet.Rows = queryResultOutput.ResultSet.Rows[1:]		// skip header row
+//	}
+//
 // mapped, err := mapper.FromAthenaResultSetV2(ctx, queryResultOutput.ResultSet)
 func (m *dataMapper) FromAthenaResultSetV2(ctx context.Context, resultSet *types.ResultSet) ([]interface{}, error) {
 	resultSetSchema, err := newResultSetDefinitionMap(ctx, resultSet.ResultSetMetadata)
@@ -66,7 +68,7 @@ func (m *dataMapper) FromAthenaResultSetV2(ctx context.Context, resultSet *types
 			// log.Printf("SET model.%s = row.Data[%d] with athena col name = '%s'", fieldName, mappedColumnInfo.index, athenaColName)
 			colData, err := castAthenaRowData(ctx, row.Data[mappedColumnInfo.index], mappedColumnInfo.athenaColumnType)
 			if err != nil {
-				return nil, err
+				continue
 			}
 			model.Elem().FieldByName(fieldName).Set(reflect.ValueOf(colData))
 		}
