@@ -35,6 +35,27 @@ func castAthenaRowData(ctx context.Context, rowData types.Datum, athenaType stri
 			newStringSlice = append(newStringSlice, arrayValue...)
 		}
 		castedData = newStringSlice
+	case "map":
+		mapData := make(map[string]string)
+
+		// Trim surrounding braces
+		trimmed := strings.Trim(data, "{}")
+
+		if len(trimmed) > 0 {
+			// Split on ", " to get key=value pairs
+			pairs := strings.Split(trimmed, ", ")
+
+			for _, pair := range pairs {
+				kv := strings.SplitN(pair, "=", 2)
+				if len(kv) == 2 {
+					key := kv[0]
+					value := kv[1]
+					mapData[key] = value
+				}
+			}
+		}
+
+		castedData = mapData
 	case "timestamp":
 		castedData, err = time.Parse("2006-01-02 15:04:05", data)
 	case "date":
