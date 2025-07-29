@@ -40,7 +40,7 @@ func castAthenaRowData(ctx context.Context, rowData types.Datum, athenaType stri
 	case "date":
 		castedData, err = time.Parse("2006-01-02", data)
 	default:
-		log.Printf("ATHENA DATA TYPE NOT SUPPORTED: '%s', defaulting to string\n", athenaType)
+		log.Printf("ATHENA DATA TYPE NOT SUPPORTED: '%s', defaulting to string %s\n", athenaType, data)
 		castedData = data
 	}
 
