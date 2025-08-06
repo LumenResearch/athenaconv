@@ -2,7 +2,6 @@ package athenaconv
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"strconv"
 	"strings"
@@ -38,8 +37,6 @@ func castAthenaRowData(ctx context.Context, rowData types.Datum, athenaType stri
 		castedData = newStringSlice
 	case "map":
 		mapData := make(map[string]string)
-
-		fmt.Println(data)
 
 		// Trim surrounding braces
 		trimmed := strings.Trim(data, "{}")
